@@ -1,0 +1,27 @@
+<%- include("header") -%>
+  <div class="card">
+    <h1>
+      <%=listTitle%>
+    </h1>
+
+
+    <ul>
+      <% newListItems.forEach(item=>{ %>
+        <form method="post" action="/delete">
+          <div class="container">
+            <input type="checkbox" name="checkbox" onChange="this.form.submit() " value=<%=item._id%>>
+            <p>
+              <%=item.name%>
+            </p>
+          </div>
+        </form>
+        <% }) %>
+    </ul>
+
+    <form action="/" method="post" class="text-container">
+      <input type="text" name="newItem" autocomplete="off">
+      <button type="submit">+</button>
+    </form>
+
+
+    <%- include("footer") -%>
