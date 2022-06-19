@@ -41,11 +41,11 @@ const defaultItems = [item1, item2, item3]
 app.get('/', (req, res) => {
 
   Item.find({}, (err, foundItems) => {
-    console.log(foundItems.length)
+    // console.log(foundItems.length)
     if (foundItems.length === 0) {
       Item.insertMany(defaultItems, (err) => {
         if (!err) {
-          console.log("default item entered..")
+          // console.log("default item entered..")
         }
       })
       res.redirect("/")
